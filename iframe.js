@@ -22,6 +22,12 @@ if (!website || !hideKey || !unhideKey) {
 
 var iframe = document.createElement("iframe");
 iframe.src = website;
+iframe.style.width = "100%";
+iframe.style.height = "100%";
+iframe.style.position = "fixed";
+iframe.style.top = "50%";
+iframe.style.left = "50%";
+iframe.style.transform = "translate(-50%, -50%)";
 document.body.appendChild(iframe);
 
 if (hideKey && unhideKey) {
