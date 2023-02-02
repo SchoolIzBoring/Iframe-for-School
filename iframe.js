@@ -30,14 +30,16 @@ iframe.style.left = "0";
 iframe.style.zIndex = "9999";
 document.body.appendChild(iframe);
 
-if (hideKey && unhideKey) {
-  iframe.style.display = "none";
+iframe.addEventListener("load", function () {
+  iframe.style.display = "block";
 
-  document.addEventListener("keydown", function(event) {
-    if (event.key === hideKey) {
-      iframe.style.display = "none";
-    } else if (event.key === unhideKey) {
-      iframe.style.display = "block";
-    }
-  });
-}
+  if (hideKey && unhideKey) {
+    document.addEventListener("keydown", function(event) {
+      if (event.key === hideKey) {
+        iframe.style.display = "none";
+      } else if (event.key === unhideKey) {
+        iframe.style.display = "block";
+      }
+    });
+  }
+});
